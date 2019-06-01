@@ -15,3 +15,4 @@ def not_empty(n):
 
 
 print(list(filter(not_empty,["  ","111   ","eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"])))
+
