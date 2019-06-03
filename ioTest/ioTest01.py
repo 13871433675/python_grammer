@@ -27,5 +27,22 @@ if __name__ == '__main__':
             f.close();
             print("file closed!")
 
-    with open("test.txt", 'w', encoding='utf-8', errors='ignore') as f:
+    # read() readlines() readline()的区别
+    # read()—当成一个字符串读出
+    # readlines()readlines返回的是列表
+    # readline()一行一行读文件
+    # 如果文件很大，用read（）内存不够（如运维日志几十G）
+    # 用readline来读超大文件
+    # 原则：内存在电脑中是个稀缺的资源，如果你占用大量内存，程序肯定不是最优的，小文件：read、readlines速度更快些
+
+    # 关于open()的mode参数：
+    # 'r'：读
+    # 'w'：写
+    # 'a'：追加
+    # 'r+' == r+w（可读可写，文件若不存在就报错(IOError)）
+    # 'w+' == w+r（可读可写，文件若不存在就创建）
+    # 'a+' ==a+r（可追加可写，文件若不存在就创建）
+    # 对应的，如果是二进制文件，就都加一个b就好啦：
+    # 'rb'　　'wb'　　'ab'　　'rb+'　　'wb+'　　'ab+'
+    with open("test.txt", 'a', encoding='utf-8', errors='ignore') as f:
         f.write("\n写入文件测试！")
